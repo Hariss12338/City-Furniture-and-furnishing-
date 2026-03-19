@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>City Furniture and Furnishing | Navi Mumbai</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-logo">
+            City Furniture 
+            <div style="font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 4px; color: var(--wood-medium); margin-top: 5px;">& FURNISHING</div>
+        </div>
+        <div class="loader-line" id="loader-line"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo" onclick="window.scrollTo(0,0)">
+            City Furniture
+            <span>& Furnishing</span>
+        </a>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Collection</a>
+            <a href="#materials">Materials</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <span class="hero-tag">Crafted by Nature. Designed for Life.</span>
+            <h1 class="hero-title">Timeless Luxury<br>for Your Space</h1>
+            <p class="hero-location">Premium Showroom | Ghansoli, Navi Mumbai</p>
+        </div>
+        <div class="scroll-indicator">Scroll to Explore</div>
+    </section>
+
+    <!-- About Parallax Sections -->
+    <section id="about" style="background: var(--cream);">
+        <div class="container story-section">
+            <div class="story-text">
+                <h3>Modern Furniture Store</h3>
+                <p><strong>Transform Your Home Today.</strong> Every piece at City Furniture and Furnishing is a testament to meticulous craftsmanship.</p>
+                <p style="margin-top: 15px;">We have different types of sofabeds, cupboards, office tables and chairs, tea poys, showcases, sofa sets, etc. We provide furniture on a monthly EMI basis with 0% downpayment.</p>
+                <a href="#products" class="btn" style="margin-top: 20px;">Explore Collection</a>
+            </div>
+            <div class="story-img-container">
+                <div class="story-img img1"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="dark-section">
+        <div class="container story-section">
+            <div class="story-img-container">
+                <div class="story-img img2"></div>
+            </div>
+            <div class="story-text">
+                <h3>Sustainably Sourced Wood & Easy EMI</h3>
+                <p>Luxury shouldn't come at the Earth's expense. We source the finest ethically harvested Teak, Walnut, and Oak. Masterfully crafted natural grain patterns radiate warmth and exclusivity.</p>
+                <p style="margin-top: 15px; color: var(--gold); border-left: 2px solid var(--gold); padding-left: 15px;"><strong>Easy to Buy, Easier to Own:</strong> Elevate your home instantly with our flexible <strong>No-Cost EMI options</strong>. Getting premium, sustainable furniture has never been this stress-free.</p>
+                <a href="#materials" class="btn btn-solid" style="margin-top: 20px;">View Materials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Collection -->
+    <section id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Signature Collection</h2>
+                <p>Discover our curated selection of premium wooden furniture designed to elevate your interiors.</p>
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sofas">Sofas & Couches</button>
+                <button class="filter-btn" data-filter="dining">Dining Tables</button>
+                <button class="filter-btn" data-filter="coffee">Tea Poy & Coffee Tables</button>
+                <button class="filter-btn" data-filter="wardrobes">Cupboards & Wardrobes</button>
+                <button class="filter-btn" data-filter="prayer">Prayer Units</button>
+            </div>
+
+            <div class="products-grid" id="products-container">
+                <div class="product-card" data-cat="dining" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipNPprw7whiuypChAKkQymHkhhG4z4Pu4ZRqtDzi=s680-w680-h510-rw" alt="Elysium Teak Dining Ensemble" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Elysium Teak Dining Ensemble</h4>
+                        <div class="price">â‚¹1,45,000</div>
+                        <p>A masterclass in luxury dining. This exquisite table is handcrafted from sustainably sourced teak...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('11')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="dining" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipNsWAOnlKLpGnSeP1ocBGFRbeyJ6MTAa6ML8z8I=s680-w680-h510-rw" alt="Opulence Marble-Top Dining" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Opulence Marble-Top Dining</h4>
+                        <div class="price">â‚¹1,85,000</div>
+                        <p>Seamlessly blending sheer elegance with structural integrity, this dining table pairs a solid t...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('12')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="dining" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipOISSPsbT9JgmSoW1RMP0qzpB58im1D7gRxziRV=s680-w680-h510-rw" alt="Sovereign Grandeur Table" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Sovereign Grandeur Table</h4>
+                        <div class="price">â‚¹1,60,000</div>
+                        <p>A statement of pure sophistication. The Sovereign dining table showcases stunning natural wood ...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('13')">View Details</button>
+                    </div>
+                </div>
+                <!-- COFFEE -->
+                <div class="product-card" data-cat="coffee" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipMpwnDbsEkQBbjbfD14Rkx-lmfF_p06AT9B7_5N=s680-w680-h510-rw" alt="Aristocrat Tea Poy" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Aristocrat Tea Poy</h4>
+                        <div class="price">â‚¹22,000</div>
+                        <p>Redefining the center of your living room. The Aristocrat Tea Poy combines mid-century charm ...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('14')">View Details</button>
+                    </div>
+                </div>
+                <!-- SOFAS -->
+                <div class="product-card" data-cat="sofas" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipOBc1xLMeXLz_D-j3sV4VNTXmJB9PGj6sCq8UJ2=s680-w680-h510-rw" alt="Luminance Luxury Sofa" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Luminance Luxury Sofa</h4>
+                        <div class="price">â‚¹75,000</div>
+                        <p>Sink into unparalleled comfort. This luxury sofa set features sweeping curves, an exposed prem...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('15')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="sofas" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipNPZXh3dysGjUbn3isMkIkxm00O0u5kVajZN98A=s680-w680-h510-rw" alt="Monarch Sectional Couch" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Monarch Sectional Couch</h4>
+                        <div class="price">â‚¹95,000</div>
+                        <p>Expansive, plush, and inherently glamorous. The Monarch Sectional invites you to stretch out i...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('16')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="sofas" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipOI2-nz2RFsruvmpYTHzmHhH6kkCcvtsL34IFUJ=s680-w680-h510-rw" alt="Aethelred Classic Set" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Aethelred Classic Set</h4>
+                        <div class="price">â‚¹88,000</div>
+                        <p>Where classical design meets modern upholstery. Detailed tufting and hand-carved legs make thi...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('17')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="sofas" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipMWy8Ak1qO4TkPPfhOVCtIapuWDmyZLL_8bsWHV=s680-w680-h510-rw" alt="The Chesterfield Crown" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>The Chesterfield Crown</h4>
+                        <div class="price">â‚¹1,15,000</div>
+                        <p>A true icon of luxury. This deeply buttoned, imposing sofa commands attention, offering a magn...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('18')">View Details</button>
+                    </div>
+                </div>
+                <!-- PRAYER -->
+                <div class="product-card" data-cat="prayer" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipO9QrMmUT8NYHLKfHJIUk3ArjuwkOmCc5s4JlE6=s680-w680-h510-rw" alt="Divine Aura Mantapa" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Divine Aura Mantapa</h4>
+                        <div class="price">â‚¹35,000</div>
+                        <p>An abode of tranquility. Hand-carved by master artisans, this prayer unit radiates spiritual e...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('19')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="prayer" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipPtdvERCMNvpg8iz9eCgspht_UfGgzPsLp4H5MU=s680-w680-h510-rw" alt="Serenity Pooja Mandir" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Serenity Pooja Mandir</h4>
+                        <div class="price">â‚¹42,000</div>
+                        <p>Elevate your daily devotion. The Serenity Mandir incorporates ample storage for prayer essenti...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('20')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="prayer" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipMIEcj6N6UFXghNKg4Dnx4HlxppWAYzod3VnWOz=s680-w680-h510-rw" alt="Ethereal Wooden Shrine" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Ethereal Wooden Shrine</h4>
+                        <div class="price">â‚¹28,000</div>
+                        <p>Compact luxury for sacred moments. Exceptionally detailed woodwork framing an illuminated cent...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('21')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="prayer" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipN-GkHdUFKolJWpUZh9dUhlmWPZKZPMK18PAyzp=s680-w680-h510-rw" alt="Celestial Carved Unit" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Celestial Carved Unit</h4>
+                        <div class="price">â‚¹55,000</div>
+                        <p>A monumental expression of faith and craftsmanship. Featuring grand pillars, detailed inscript...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('22')">View Details</button>
+                    </div>
+                </div>
+                <!-- WARDROBES -->
+                <div class="product-card" data-cat="wardrobes" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipP7tJ-MV_Z9NfDOzoIFnUyZuUuRKYmRcgud1NAU=s680-w680-h510-rw" alt="Regal Storage Cupboard" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Regal Storage Cupboard</h4>
+                        <div class="price">â‚¹65,000</div>
+                        <p>Safeguard your wardrobe in absolute luxury. A towering wooden masterpiece with soft-close mech...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('23')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="wardrobes" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipM8z1Gg3J3jOU8sOZJxZV2Yu4Be8MLxXRJr1v2o=s680-w680-h510-rw" alt="Vanguard Teak Armoire" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Vanguard Teak Armoire</h4>
+                        <div class="price">â‚¹85,000</div>
+                        <p>Space meets splendor. The Vanguard Armoire is designed with intelligently segmented compartmen...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('24')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="wardrobes" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipNEjrwADbQD6uys7VzXvRwzERjFn9KH_mcTzdz3=s680-w680-h510-rw" alt="Majesty Wardrobe Unit" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Majesty Wardrobe Unit</h4>
+                        <div class="price">â‚¹72,000</div>
+                        <p>Timeless utility elevated to an art form. Boasting antique brass handles, pristine finishing, ...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('25')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="wardrobes" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipMHihfUiAWVZ33b7MwV8cY4ZhXtTpQfnCdXQu2Y=s680-w680-h510-rw" alt="Imperial Double Cupboard" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Imperial Double Cupboard</h4>
+                        <div class="price">â‚¹98,000</div>
+                        <p>A colossal storage solution offering bespoke elegance. The sliding or sweeping doors open to a...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('26')">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-cat="wardrobes" style="display:flex;">
+                    <div class="product-img-box" style="background: transparent; padding: 0;">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipP7OgiTNufbSwvpuSaAJszWkgnuxyUuY7JwImWD=s680-w680-h510-rw" alt="Chateau Organizer" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product-info">
+                        <h4>Chateau Organizer</h4>
+                        <div class="price">â‚¹58,000</div>
+                        <p>For those who appreciate the finer details. This cupboard merges solid wood framing with frosted glass accents, bringing a touch of modern luminosity to your chamber...</p>
+                        <button class="btn" style="width: 100%; padding: 10px;" onclick="openDetail('27')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Divider Effect with Sofa -->
+    <section class="banner-divider" id="parallax-banner" style="padding: 0;">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h2>Experience True Comfort</h2>
+            <p>Your living space, reimagined.</p>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section id="materials" class="dark-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Essence of Luxury</h2>
+                <p>Our commitment to quality begins with the raw materials. Explore the noble woods that form the foundation of our collection.</p>
+            </div>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <i class="fa-solid fa-tree material-icon"></i>
+                    <h4>Imperial Teak</h4>
+                    <p>Renowned for its incredible durability and rich, golden-brown hue. Naturally resistant to moisture, making it ideal for heirloom pieces.</p>
+                </div>
+                <div class="material-card">
+                    <i class="fa-solid fa-leaf material-icon"></i>
+                    <h4>Classic Oak</h4>
+                    <p>Celebrated for its prominent, beautiful grain and immense strength. A versatile wood that brings a grounding presence to any room.</p>
+                </div>
+                <div class="material-card">
+                    <i class="fa-solid fa-seedling material-icon"></i>
+                    <h4>Deep Walnut</h4>
+                    <p>A luxurious, dark wood with swirling grain patterns. Highly prized for its smooth finish and sophisticated depth of color.</p>
+                </div>
+                <div class="material-card">
+                    <i class="fa-solid fa-layer-group material-icon"></i>
+                    <h4>Premium Sheesham</h4>
+                    <p>Also known as Indian Rosewood, offering a dramatic contrast between its light sapwood and dark heartwood. Extremely robust.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-contact">
+                <h3>City Furniture & Furnishing</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Showroom Location</strong><br>
+                            Ghansoli, Navi Mumbai,<br>
+                            Maharashtra, India
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp Enquiry</strong><br>
+                            091308 96777
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-regular fa-clock"></i>
+                        <div>
+                            <strong>Hours</strong><br>
+                            10:00 AM - 10:00 PM (Monday - Sunday)
+                        </div>
+                    </div>
+                </div>
+                <a href="https://wa.me/919130896777" target="_blank" class="btn btn-solid" style="padding: 15px 30px;"><i class="fa-brands fa-whatsapp" style="margin-right: 10px;"></i> Chat on WhatsApp</a>
+            </div>
+            <div class="contact-form">
+                <h4 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--gold);">Request a Consultation</h4>
+                <form onsubmit="event.preventDefault(); alert('Inquiry sent! We will contact you soon.');">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="How can we help you design your space?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Request</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 City Furniture and Furnishing | Navi Mumbai. All Rights Reserved.<br>
+            Established 2022 | Crafted by Nature. Designed for Life.
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal">
+        <i class="fa-solid fa-xmark close-modal" onclick="closeModal()"></i>
+        <div class="modal-3d">
+            <canvas id="modal-canvas"></canvas>
+        </div>
+        <div class="modal-content">
+            <h2 id="m-name">Product Name</h2>
+            <div class="modal-price" id="m-price">â‚¹0</div>
+            <p class="modal-desc" id="m-desc">Description</p>
+            
+            <div class="modal-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Primary Material</div>
+                    <div class="meta-value" id="m-material">Solid Teak Wood</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Finish</div>
+                    <div class="meta-value">Premium Matte Walnut Polish</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Dimensions</div>
+                    <div class="meta-value" id="m-dims">L x W x H</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Craftsmanship</div>
+                    <div class="meta-value">Handcrafted in Navi Mumbai</div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/919130896777" target="_blank" class="whatsapp-btn" id="m-wa">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i> Enquire on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
